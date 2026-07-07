@@ -1,0 +1,4 @@
+[
+  {"input": "What are your hours?", "expected": "9 to 5, Mon-Fri"},
+  {"input": "Do you ship overseas?", "expected": "Yes, worldwide"}
+]

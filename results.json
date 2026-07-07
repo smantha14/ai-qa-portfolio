@@ -1,0 +1,12 @@
+[
+  {
+    "input": "what are your hours?",
+    "score": 0.92,
+    "passed": true
+  },
+  {
+    "input": "do you ship internationally?",
+    "score": 0.61,
+    "passed": false
+  }
+]
