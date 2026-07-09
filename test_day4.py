@@ -11,4 +11,4 @@ def test_please_counts_as_polite():
     assert is_polite ("please hold") == True
 
 def test_this_will_fail():
-    assert is_polite ("please go away") ==  True
+    assert is_polite ("go away") ==  False

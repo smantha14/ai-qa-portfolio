@@ -103,3 +103,29 @@ def test_disclaimer_adherence(goldens):
             actual_output=case["expected_output"],
         )
         assert_test(test_case, [disclaimer_metric])
+
+        # --- Regression demo: prove the suite catches a quality drop ---
+# Same patient question, two answers: one good, one deliberately degraded.
+# This demonstrates the eval gate actually blocks sub-standard responses.
+
+def test_regression_faithfulness_catches_hallucination():
+    """A degraded answer that adds an unsupported claim should FAIL faithfulness."""
+    context = ["Care guide: routine hemodialysis is typically performed 3 times per week."]
+
+    # Deliberately degraded: invents a fact not in the context (a hallucination)
+    degraded_output = (
+        "Routine hemodialysis is performed 5 times per week."   # <-- CONTRADICTS the context (says 3)
+    )
+
+    test_case = LLMTestCase(
+        input="How often is routine dialysis performed?",
+        actual_output=degraded_output,
+        retrieval_context=context,
+    )
+    metric = FaithfulnessMetric(threshold=0.9, model=judge)
+
+    # We EXPECT this to fail the metric — that's the point of the demo.
+    metric.measure(test_case)
+    assert metric.score < 0.9, "Regression demo failed: the suite did NOT catch the hallucination"
+    print(f"\n[Regression demo] Degraded answer correctly caught. Faithfulness score: {metric.score}")
+    print(f"[Regression demo] Reason: {metric.reason}")
