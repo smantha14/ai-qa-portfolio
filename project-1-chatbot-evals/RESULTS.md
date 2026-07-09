@@ -55,4 +55,4 @@ My first regression attempt used a *fabricated but non-contradictory* claim ("..
 - A negative/regression test proving the gate catches quality drops
 - Understanding metric semantics deeply enough to know their limits
 
-*Next: wire this suite into GitHub Actions so the gate runs on every push (CI integration).*
+
