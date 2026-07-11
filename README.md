@@ -39,4 +39,4 @@ The `day*.py` and `test_day*.py` files at the repo root are foundational Python/
 
 ---
 
-*Contact: [LinkedIn / email — add your preferred contact]*
+*Contact: [[LinkedIn](https://www.linkedin.com/in/surya-teja-mantha-721355209/) / email — teja.mantha@gmail.com]*
