@@ -61,7 +61,7 @@ DISCLAIMER_METRIC = GEval(
 )
 
 # =====================================================================
-# Each case below runs as its own named test via pytest parametrize, with the case ID as the test name.
+# Each case below runs as its own named test 
 # =====================================================================
 
 _relevancy = cases_for("relevancy")
